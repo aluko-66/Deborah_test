@@ -1,0 +1,14 @@
+{
+  "name": "velora-debug-exercise-3",
+  "version": "1.0.0",
+  "description": "TSE Interview - Practical Debugging Exercise #3",
+  "main": "src/server.js",
+  "scripts": {
+    "start": "node src/server.js",
+    "seed": "node db/seed.js"
+  },
+  "dependencies": {
+    "better-sqlite3": "^12.10.0",
+    "express": "^5.2.1"
+  }
+}

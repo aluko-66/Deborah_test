@@ -1,0 +1,59 @@
+[2025-05-19T08:00:01.001Z] [INFO] Server started on port 3000
+[2025-05-19T08:01:05.210Z] [INFO] Fetched 4 employees
+[2025-05-19T08:02:12.334Z] [INFO] Fetched 7 timesheet entries for employee 1
+[2025-05-19T08:03:44.009Z] [INFO] Timesheet entry 27 created for employee 1
+[2025-05-19T08:05:18.002Z] [INFO] Weekly report for employee 1 from 2025-05-12: 41.5h
+[2025-05-19T08:05:55.771Z] [INFO] Weekly report for employee 2 from 2025-05-12: 39h
+[2025-05-19T08:10:03.120Z] [INFO] Timesheet entry 28 created for employee 2
+[2025-05-19T08:11:22.004Z] [INFO] Timesheet entry 29 created for employee 1
+[2025-05-19T08:15:07.112Z] [WARN] Timesheet entry 5 not found for update
+[2025-05-19T08:20:33.990Z] [INFO] Timesheet entry 3 updated (7 row(s) affected)
+[2025-05-19T08:21:00.008Z] [INFO] Fetched 4 employees
+[2025-05-19T08:25:44.208Z] [INFO] Timesheet entry 30 created for employee 3
+[2025-05-19T08:30:31.334Z] [INFO] Weekly report for employee 1 from 2025-05-12: 41.5h
+[2025-05-19T08:35:55.009Z] [INFO] Overtime report for 2025-05: 1 employee(s) flagged
+[2025-05-19T08:40:22.990Z] [INFO] Timesheet entry 31 created for employee 1
+[2025-05-19T08:42:11.553Z] [INFO] Timesheet entry 31 updated (7 row(s) affected)
+[2025-05-19T08:50:00.001Z] [INFO] Weekly report for employee 3 from 2025-05-12: 18h
+[2025-05-19T09:00:45.334Z] [INFO] Fetched 4 employees
+[2025-05-19T09:05:12.778Z] [INFO] Timesheet entry 32 created for employee 2
+[2026-05-24T11:22:36.218Z] [INFO] Server started on port 3000
+[2026-05-24T12:16:15.464Z] [INFO] Fetched 4 employees
+[2026-05-24T12:28:25.279Z] [INFO] Fetched 7 timesheet entries for employee 1
+[2026-05-24T12:28:54.141Z] [INFO] Fetched 5 timesheet entries for employee 2
+[2026-05-24T12:32:26.324Z] [ERROR] Timesheet insert failed: NOT NULL constraint failed: timesheets.created_at
+[2026-05-24T12:36:13.239Z] [ERROR] Timesheet insert failed: NOT NULL constraint failed: timesheets.created_at
+[2026-05-24T12:36:31.121Z] [INFO] Fetched 7 timesheet entries for employee 1
+[2026-05-24T12:38:03.081Z] [INFO] Weekly report for employee 1 from 2025-05-12: 44.5h
+[2026-05-24T12:39:17.753Z] [INFO] Weekly report for employee 2 from 2025-05-12: 39h
+[2026-05-24T12:42:08.822Z] [INFO] Fetched 7 timesheet entries for employee 1
+[2026-05-24T12:43:00.341Z] [INFO] Weekly report for employee 1 from 2025-05-12: 44.5h
+[2026-05-24T12:47:35.287Z] [INFO] Weekly report for employee 1 from 2025-05-12: 44.5h
+[2026-05-24T12:47:44.269Z] [INFO] Weekly report for employee 2 from 2025-05-12: 39h
+[2026-05-24T12:47:48.780Z] [INFO] Fetched 7 timesheet entries for employee 1
+[2026-05-24T12:48:01.242Z] [INFO] Timesheet entry 1 updated (7 row(s) affected)
+[2026-05-24T12:48:20.626Z] [INFO] Overtime report for 2025-05: 1 employee(s) flagged
+[2026-05-24T12:48:34.226Z] [INFO] Timesheet entry 1 updated (7 row(s) affected)
+[2026-05-24T12:48:38.621Z] [INFO] Fetched 7 timesheet entries for employee 1
+[2026-05-24T12:49:25.651Z] [ERROR] Timesheet insert failed: NOT NULL constraint failed: timesheets.created_at
+[2026-05-24T13:35:43.127Z] [ERROR] Timesheet insert failed: NOT NULL constraint failed: timesheets.created_at
+[2026-05-24T14:29:58.208Z] [INFO] Server started on port 3000
+[2026-05-24T14:30:42.538Z] [INFO] Fetched 4 employees
+[2026-05-24T14:33:32.993Z] [ERROR] Timesheet insert failed: NOT NULL constraint failed: timesheets.created_at
+[2026-05-24T14:33:40.779Z] [ERROR] Timesheet insert failed: NOT NULL constraint failed: timesheets.created_at
+[2026-05-24T14:33:45.280Z] [ERROR] Timesheet insert failed: NOT NULL constraint failed: timesheets.created_at
+[2026-05-24T14:33:49.139Z] [INFO] Fetched 7 timesheet entries for employee 1
+[2026-05-24T14:33:51.383Z] [INFO] Weekly report for employee 1 from 2025-05-12: 35h
+[2026-05-24T14:33:54.009Z] [INFO] Weekly report for employee 2 from 2025-05-12: 39h
+[2026-05-24T14:33:56.017Z] [INFO] Timesheet entry 1 updated (1 row(s) affected)
+[2026-05-24T14:34:04.521Z] [ERROR] Timesheet insert failed: NOT NULL constraint failed: timesheets.created_at
+[2026-05-24T14:35:34.776Z] [INFO] Server started on port 3000
+[2026-05-24T14:35:47.577Z] [ERROR] Timesheet insert failed: NOT NULL constraint failed: timesheets.created_at
+[2026-05-24T14:36:29.670Z] [ERROR] Timesheet insert failed: NOT NULL constraint failed: timesheets.created_at
+[2026-05-24T14:39:16.808Z] [INFO] Overtime report for 2025-05: 1 employee(s) flagged
+[2026-05-24T14:45:37.291Z] [INFO] Server started on port 3000
+[2026-05-24T14:45:52.537Z] [INFO] Overtime report for 2025-05: 1 employee(s) flagged
+[2026-05-24T14:46:03.253Z] [INFO] Timesheet entry 1 updated (1 row(s) affected)
+[2026-05-24T14:46:06.741Z] [INFO] Overtime report for 2025-05: 1 employee(s) flagged
+[2026-05-24T14:46:30.749Z] [ERROR] Timesheet insert failed: NOT NULL constraint failed: timesheets.created_at
+[2026-05-24T14:46:45.713Z] [ERROR] Timesheet insert failed: NOT NULL constraint failed: timesheets.created_at

@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Velora — Timesheet Debug Dashboard</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: monospace; background: #0e0e14; color: #d4d4d8; padding: 2rem; }
+    h1 { font-size: 1.4rem; margin-bottom: .4rem; color: #a78bfa; }
+    p.sub { font-size: .8rem; color: #71717a; margin-bottom: 1.6rem; }
+    .group { margin-bottom: 1.2rem; }
+    .group h2 { font-size: .78rem; color: #71717a; text-transform: uppercase;
+                letter-spacing: .1em; margin-bottom: .45rem; }
+    button { background: #18181b; color: #a78bfa; border: 1px solid #3f3f46;
+             padding: .38rem .85rem; cursor: pointer; font-family: monospace;
+             font-size: .8rem; margin-right: .4rem; margin-bottom: .4rem; border-radius: 4px; }
+    button:hover { border-color: #a78bfa; background: #27272a; }
+    button.danger { color: #f87171; }
+    button.danger:hover { border-color: #f87171; }
+    #output { margin-top: 1.4rem; background: #18181b; border: 1px solid #3f3f46;
+              padding: 1rem; white-space: pre-wrap; font-size: .8rem;
+              min-height: 220px; border-radius: 6px; line-height: 1.6; }
+    .err { color: #f87171; }
+  </style>
+</head>
+<body>
+  <h1>🕐 Velora Timesheet Debug Dashboard</h1>
+  <p class="sub">Reproduce the reported bugs by clicking the scenarios below.</p>
+
+  <div class="group">
+    <h2>Employees</h2>
+    <button onclick="call('/api/employees')">GET /api/employees</button>
+    <button onclick="call('/api/timesheets/1')">GET timesheets — employee 1</button>
+    <button onclick="call('/api/timesheets/2')">GET timesheets — employee 2</button>
+  </div>
+
+  <div class="group">
+    <h2>Log Hours (Bug 1 — negative hours)</h2>
+    <button onclick="logHours(1,'2025-05-20',8,'Normal day')">Log +8h (valid)</button>
+    <button class="danger" onclick="logHours(1,'2025-05-21',-8,'Oops')">Log -8h (should be rejected)</button>
+    <button onclick="call('/api/timesheets/1')">Check employee 1 timesheets</button>
+  </div>
+
+  <div class="group">
+    <h2>Weekly Report (Bug 2 — off-by-one date)</h2>
+    <button onclick="call('/api/reports/weekly?employee_id=1&week_start=2025-05-12')">
+      Weekly report emp 1 — week of May 12 (Sunday May 18 missing?)
+    </button>
+    <button onclick="call('/api/reports/weekly?employee_id=2&week_start=2025-05-12')">
+      Weekly report emp 2 — week of May 12
+    </button>
+  </div>
+
+  <div class="group">
+    <h2>Update Entry (Bug 3 — wrong WHERE clause)</h2>
+    <button onclick="call('/api/timesheets/1')">View employee 1 entries first</button>
+    <button class="danger" onclick="updateEntry(1,5,'Updated single entry')">
+      PUT /api/timesheets/1 — watch how many rows change
+    </button>
+  </div>
+
+  <div class="group">
+    <h2>Overtime Report</h2>
+    <button onclick="call('/api/reports/overtime?month=2025-05')">
+      GET overtime report — May 2025
+    </button>
+  </div>
+
+  <div id="output">Click a button to call the API…</div>
+
+  <script>
+    const out = document.getElementById("output");
+
+    async function call(url, opts) {
+      out.className = "";
+      out.textContent = `→ ${opts?.method || "GET"} ${url}\n\n`;
+      try {
+        const res = await fetch(url, opts);
+        const data = await res.json();
+        if (!res.ok) out.className = "err";
+        out.textContent += JSON.stringify(data, null, 2);
+      } catch (e) {
+        out.className = "err";
+        out.textContent += "Network error: " + e.message;
+      }
+    }
+
+    function logHours(employee_id, work_date, hours, description) {
+      call("/api/timesheets", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ employee_id, work_date, hours, description })
+      });
+    }
+
+    function updateEntry(id, hours, description) {
+      call(`/api/timesheets/${id}`, {
+        method: "PUT",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ hours, description })
+      });
+    }
+  </script>
+</body>
+</html>
