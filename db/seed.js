@@ -31,7 +31,7 @@ ins.run("Linus Torvalds","linus@velora.io",  "Engineering");
 
 // Timesheets — May 2025, spread across multiple weeks
 const ts = db.prepare(
-  "INSERT INTO timesheets (employee_id, work_date, hours, description) VALUES (?, ?, ?, ?)"
+  "INSERT INTO timesheets (employee_id, work_date, hours, description, created_at) VALUES (?, ?, ?, ?, datetime('now'))"
 );
 
 // Grace – week of 2025-05-12 (Mon–Sun)

@@ -61,7 +61,7 @@ if (typeof hours !== "number" || hours <= 0 || hours > 24) {
   try {
     const result = db
       .prepare(
-        "INSERT INTO timesheets (employee_id, work_date, hours, description) VALUES (?, ?, ?, ?)"
+        "INSERT INTO timesheets (employee_id, work_date, hours, description, created_at) VALUES (?, ?, ?, ?, datetime('now'))"
       )
       .run(employee_id, work_date, hours, description || "");
 
