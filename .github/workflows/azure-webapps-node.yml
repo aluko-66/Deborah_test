@@ -33,10 +33,14 @@ permissions:
 jobs:
   build:
     runs-on: ubuntu-latest
+    env:
+      FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
     steps:
     - uses: actions/checkout@v4
 
     - name: Set up Node.js
+    env:
+      FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
       uses: actions/setup-node@v4
       with:
         node-version: ${{ env.FORCE_JAVASCRIPT_ACTIONS_TO_NODE24}}
